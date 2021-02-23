@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const router = require("./Routes/routes");
 const password = require("./password");
-require("dotenv-safe");
 const App = express();
 const port = 4000;
 // BODY-PARSER //

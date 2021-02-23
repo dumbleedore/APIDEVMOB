@@ -18,4 +18,31 @@ module.exports = {
       }
     });
   },
+
+  async Login(req, res) {
+    const username = req.body.username;
+    const password = req.body.password;
+    const user = await User.find(
+      { username: username, password: password },
+      (err, data) => {
+        if (err) {
+          console.log(err);
+        }
+        if (data.length > 0) {
+          return res.json(data);
+        } else {
+          return res.json({ message: "Username ou Senha incorretos" });
+        }
+      }
+    );
+  },
+
+  async getUsers(req, res) {
+    User.find({}, (err, data) => {
+      if (err) {
+        console.log(err);
+      }
+      res.json(data);
+    });
+  },
 };
