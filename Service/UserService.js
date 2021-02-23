@@ -29,7 +29,9 @@ module.exports = {
           console.log(err);
         }
         if (data.length > 0) {
-          return res.json(data);
+          data.map((user) => {
+            return res.json(user.id);
+          });
         } else {
           return res.json({ message: "Username ou Senha incorretos" });
         }
