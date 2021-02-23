@@ -39,6 +39,12 @@ module.exports = {
     );
   },
 
+  async deleteUsers(req, res) {
+    User.deleteMany({}).then(() => {
+      res.json({ message: "Usuarios deletados" });
+    });
+  },
+
   async getUsers(req, res) {
     User.find({}, (err, data) => {
       if (err) {
